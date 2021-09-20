@@ -46,7 +46,7 @@ function GridSection({name1,title1,availability1,backgroundImg1,leftBtnText1,rig
           </ButtonWrap>
         </GWrapper>
         <Show>
-            <img src = {showUrl} alt="the morning show" />
+            <img src = {showUrl} alt="" />
             <a href="https://apple-clone-qop.netlify.app/">{showtitle}	&nbsp; {playicon}</a>
         </Show>
       </Wrap>
