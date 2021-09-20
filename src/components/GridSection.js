@@ -14,11 +14,11 @@ function GridSection({name1,title1,availability1,backgroundImg1,leftBtnText1,rig
           </InfoText>
           <ButtonWrap>
             <LeftButton>
-              <p><a href="#">{leftBtnText1}</a> {arrow1}</p> 
+              <p><a href="https://apple-clone-qop.netlify.app/">{leftBtnText1}</a> {arrow1}</p> 
             </LeftButton> 
             { rightBtnText1 && 
               <RightButton>
-              <p><a href="#">{rightBtnText1}</a> {arrow1}</p> 
+              <p><a href="https://apple-clone-qop.netlify.app/">{rightBtnText1}</a> {arrow1}</p> 
             </RightButton> 
             }
           </ButtonWrap>
@@ -36,18 +36,18 @@ function GridSection({name1,title1,availability1,backgroundImg1,leftBtnText1,rig
           </InfoText>
           <ButtonWrap>
             <LeftButton>
-              <p><a href="#">{leftBtnText2}</a> {arrow2}</p> 
+              <p><a href="https://apple-clone-qop.netlify.app/">{leftBtnText2}</a> {arrow2}</p> 
             </LeftButton> 
             { rightBtnText2 && 
               <RightButton>
-              <p><a href="#">{rightBtnText2}</a> {arrow2}</p> 
+              <p><a href="https://apple-clone-qop.netlify.app/">{rightBtnText2}</a> {arrow2}</p> 
             </RightButton> 
             }
           </ButtonWrap>
         </GWrapper>
         <Show>
-            <img src = {showUrl} />
-            <a href="#">{showtitle}	&nbsp; {playicon}</a>
+            <img src = {showUrl} alt="the morning show" />
+            <a href="https://apple-clone-qop.netlify.app/">{showtitle}	&nbsp; {playicon}</a>
         </Show>
       </Wrap>
     </Grid>

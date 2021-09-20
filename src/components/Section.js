@@ -13,11 +13,11 @@ function Section({name,title,availability,backgroundImg,leftBtnText,rightBtnText
       </InfoText>
       <ButtonWrap>
         <LeftButton>
-          <p><a href="#">{leftBtnText}</a> {arrow}</p> 
+          <p><a href="https://apple-clone-qop.netlify.app/">{leftBtnText}</a> {arrow}</p> 
         </LeftButton> 
         { rightBtnText && 
           <RightButton>
-          <p><a href="#">{rightBtnText}</a> {arrow}</p> 
+          <p><a href="https://apple-clone-qop.netlify.app/">{rightBtnText}</a> {arrow}</p> 
         </RightButton> 
         }
       </ButtonWrap>
