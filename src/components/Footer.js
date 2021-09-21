@@ -1,5 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
+import Faq from "react-faq-component";
 import { selectShopAndLearns } from '../features/item/itemSlice';
 import { selectServices } from '../features/item/itemSlice';
 import { selectAccount } from '../features/item/itemSlice';
@@ -11,7 +12,6 @@ import { selectForGovernment } from '../features/item/itemSlice';
 import { selectAppleValues } from '../features/item/itemSlice';
 import { selectAboutApple } from '../features/item/itemSlice';
 import { useSelector } from 'react-redux';
-
 
 function Footer() {
 
@@ -26,8 +26,50 @@ function Footer() {
   const AppleValues = useSelector(selectAppleValues)
   const AboutApple = useSelector(selectAboutApple)
 
-  console.log(Services)
-
+  const data = {
+    rows: [
+        {
+            title: <h5>Shop and Learn</h5>,
+            content: `${ShopAndLearns && ShopAndLearns.map((ShopAndLearn, index) => <li>{ShopAndLearn}</li> )}`,
+        },
+        {
+            title: <h5>Services</h5> ,
+            content: ` ${Services && Services.map((Services, index) => <li>{Services}</li> )}`,
+        },
+        {
+          title: <h5>Account</h5>,
+          content: ` ${Account && Account.map((Account, index) => <li>{Account}</li> )}`,
+        },
+        {
+          title:<h5>Apple Store</h5>,
+          content: `  ${AppleStore && AppleStore.map((AppleStore, index) => <li>{AppleStore}</li> )}`,
+        },
+          {
+            title: <h5>For Business</h5> ,
+            content: ` ${ForBusiness && ForBusiness.map((ForBusiness, index) => <li>{ForBusiness}</li> )}`,
+        },
+          {
+            title: <h5>For Education</h5> ,
+            content: ` ${ForEducation && ForEducation.map((ForEducation, index) => <li>{ForEducation}</li> )}`,
+          },
+           {
+            title:  <h5>For Healthcare</h5> ,
+            content: ` ${ForHealthcare && ForHealthcare.map((ForHealthcare, index) => <li>{ForHealthcare}</li> )}`,
+          }, 
+          {
+            title: <h5>For Government</h5> ,
+            content: ` ${ForGovernment && ForGovernment.map((ForGovernment, index) => <li>{ForGovernment}</li> )}`,
+          }, 
+          {
+            title: <h5>Apple Values</h5> ,
+            content: ` ${AppleValues && AppleValues.map((AppleValues, index) => <li>{AppleValues}</li> )}}`,
+          }, 
+          {
+            title: <h5>About Apple</h5> ,
+            content: ` ${AboutApple && AboutApple.map((AboutApple, index) => <li>{AboutApple}</li> )}`,
+          },
+    ],
+  };
   return (
     <Wrap>
       <p>
@@ -44,6 +86,11 @@ function Footer() {
       
       {/* list */}
       <LinkWrapper>
+        
+
+            <Faq
+                data={data}
+            />
         <LinkList>
           <ul>
             <h5>Shop and Learn</h5>
@@ -52,6 +99,7 @@ function Footer() {
           <ul>
             <h5>Services</h5>
             {Services && Services.map((Services, index) => <li>{Services}</li> )}
+
             <h5 style={{paddingTop:"0.8rem"}}>Account</h5>
             {Account && Account.map((Account, index) => <li>{Account}</li> )}
           </ul>
@@ -163,7 +211,10 @@ flex-direction:row;
 justify-content:space-between;
 align-items:flex-start;
 padding-top:1rem;
-  
+@media (max-width:768px){
+  display:none;
+
+}
   ul{
     display:flex;
     flex-direction:column;
