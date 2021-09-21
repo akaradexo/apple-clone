@@ -1,7 +1,33 @@
 import React from 'react'
 import styled from 'styled-components'
+import { selectShopAndLearns } from '../features/item/itemSlice';
+import { selectServices } from '../features/item/itemSlice';
+import { selectAccount } from '../features/item/itemSlice';
+import { selectAppleStore } from '../features/item/itemSlice';
+import { selectForBusiness } from '../features/item/itemSlice';
+import { selectForEducation } from '../features/item/itemSlice';
+import { selectForHealthcare } from '../features/item/itemSlice';
+import { selectForGovernment } from '../features/item/itemSlice';
+import { selectAppleValues } from '../features/item/itemSlice';
+import { selectAboutApple } from '../features/item/itemSlice';
+import { useSelector } from 'react-redux';
+
 
 function Footer() {
+
+  const ShopAndLearns = useSelector(selectShopAndLearns)
+  const Services = useSelector(selectServices)
+  const Account = useSelector(selectAccount)
+  const AppleStore = useSelector(selectAppleStore)
+  const ForBusiness = useSelector(selectForBusiness)
+  const ForEducation = useSelector(selectForEducation)
+  const ForHealthcare = useSelector(selectForHealthcare)
+  const ForGovernment = useSelector(selectForGovernment)
+  const AppleValues = useSelector(selectAppleValues)
+  const AboutApple = useSelector(selectAboutApple)
+
+  console.log(Services)
+
   return (
     <Wrap>
       <p>
@@ -13,6 +39,44 @@ function Footer() {
         Learn more about how Apple Card applications are evaluated at support.apple.com/kb/HT209218.<br></br><br></br>
         Apple TV+ is $4.99/month after free trial. One subscription per Family Sharing group. Offer good for 3 months after eligible device activation. Plan automatically renews until cancelled. Restrictions and other terms apply.
     </p>
+
+
+      
+      {/* list */}
+      <LinkWrapper>
+        <LinkList>
+          <ul>
+            <h5>Shop and Learn</h5>
+            {ShopAndLearns && ShopAndLearns.map((ShopAndLearn, index) => <li>{ShopAndLearn}</li> )}
+          </ul>
+          <ul>
+            <h5>Services</h5>
+            {Services && Services.map((Services, index) => <li>{Services}</li> )}
+            <h5 style={{paddingTop:"0.8rem"}}>Account</h5>
+            {Account && Account.map((Account, index) => <li>{Account}</li> )}
+          </ul>
+          <ul>
+            <h5>Apple Store</h5>
+            {AppleStore && AppleStore.map((AppleStore, index) => <li>{AppleStore}</li> )}
+          </ul>
+          <ul>
+            <h5>For Business</h5>
+            {ForBusiness && ForBusiness.map((ForBusiness, index) => <li>{ForBusiness}</li> )}
+            <h5 style={{paddingTop:"0.8rem"}}>For Education</h5>
+            {ForEducation && ForEducation.map((ForEducation, index) => <li>{ForEducation}</li> )}
+            <h5 style={{paddingTop:"0.8rem"}}>For Healthcare</h5>
+            {ForHealthcare && ForHealthcare.map((ForHealthcare, index) => <li>{ForHealthcare}</li> )}
+            <h5 style={{paddingTop:"0.8rem"}}>For Government</h5>
+            {ForGovernment && ForGovernment.map((ForGovernment, index) => <li>{ForGovernment}</li> )}
+          </ul>
+          <ul>
+            <h5>Apple Values</h5>
+            {AppleValues && AppleValues.map((AppleValues, index) => <li>{AppleValues}</li> )}
+            <h5 style={{paddingTop:"0.8rem"}}>About Apple</h5>
+            {AboutApple && AboutApple.map((AboutApple, index) => <li>{AboutApple}</li> )}
+          </ul>
+        </LinkList>
+      </LinkWrapper>
 
       <p style={{width: "100%"}} >More ways to shop:<a href="https://apple-clone-qop.netlify.app/"> Find an Apple Store </a> or <a href="https://apple-clone-qop.netlify.app/"> other retailer</a>  near you. Or call 1-800-MY-APPLE.</p>
       <FooterWrap>
@@ -26,6 +90,10 @@ function Footer() {
         </ul>
         <p>United States</p>
       </FooterWrap>
+
+
+
+
     </Wrap>
   )
 }
@@ -82,4 +150,41 @@ const FooterWrap =styled.div`
     align-items:flex-start;
   }
     
+`
+
+const LinkWrapper = styled.div`
+
+width:100%;
+
+`
+const LinkList= styled.div`
+display:flex;
+flex-direction:row;
+justify-content:space-between;
+align-items:flex-start;
+padding-top:1rem;
+  
+  ul{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    align-items:flex-start;
+    h5{
+      color:#5c5c5c;
+      font-size:0.8rem;
+      font-weight:600;
+      text-align:left;
+    }
+  li{
+    font-size:0.7rem;
+    text-align:left;
+    padding: 0.3rem 0;
+    color:#6b6b6b;
+    cursor:pointer;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+  }
+  
 `
