@@ -3,3 +3,55 @@
 
 }
 
+
+.accordion_section{
+margin: 0.4rem 0;
+border-bottom:0.11rem solid #d6d6d6;
+
+}
+.accordion_button {
+
+display:flex;
+justify-content:space-between;
+text-align:left;
+background:transparent;
+cursor:pointer;
+border:none;
+width:100%;
+padding:0.4rem 0;
+color:#6b6b6b;
+}
+.accordion_button h5{
+
+  font-size:0.7rem;
+  color:#6b6b6b;
+  font-weight:600;
+}
+.accordion_button h4{
+  transition: transform 0.6s ease;
+}
+.active{
+  color:#6b6b6b;
+}
+.rotate{
+  transform: rotate(45deg);
+}
+.accordion_text {
+list-style:none;
+text-align:left;
+overflow:hidden;
+transition: max-height 0.6s ease;
+}
+
+.accordion_text li{
+  font-size:0.7rem;
+  text-align:left;
+  padding: 0.2rem 0;
+  color:#6b6b6b;
+  cursor:pointer;
+}
+.accordion_text li:hover{
+    text-decoration: underline;
+}
+
+

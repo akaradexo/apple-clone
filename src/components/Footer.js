@@ -1,6 +1,7 @@
-import React from 'react';
+import React,{ useState , useRef } from 'react';
 import styled from 'styled-components';
-import Faq from "react-faq-component";
+import '../App.css';
+
 import { selectShopAndLearns } from '../features/item/itemSlice';
 import { selectServices } from '../features/item/itemSlice';
 import { selectAccount } from '../features/item/itemSlice';
@@ -12,7 +13,6 @@ import { selectForGovernment } from '../features/item/itemSlice';
 import { selectAppleValues } from '../features/item/itemSlice';
 import { selectAboutApple } from '../features/item/itemSlice';
 import { useSelector } from 'react-redux';
-
 function Footer() {
 
   const ShopAndLearns = useSelector(selectShopAndLearns)
@@ -26,50 +26,18 @@ function Footer() {
   const AppleValues = useSelector(selectAppleValues)
   const AboutApple = useSelector(selectAboutApple)
 
-  const data = {
-    rows: [
-        {
-            title: <h5>Shop and Learn</h5>,
-            content: `${ShopAndLearns && ShopAndLearns.map((ShopAndLearn, index) => <li>{ShopAndLearn}</li> )}`,
-        },
-        {
-            title: <h5>Services</h5> ,
-            content: ` ${Services && Services.map((Services, index) => <li>{Services}</li> )}`,
-        },
-        {
-          title: <h5>Account</h5>,
-          content: ` ${Account && Account.map((Account, index) => <li>{Account}</li> )}`,
-        },
-        {
-          title:<h5>Apple Store</h5>,
-          content: `  ${AppleStore && AppleStore.map((AppleStore, index) => <li>{AppleStore}</li> )}`,
-        },
-          {
-            title: <h5>For Business</h5> ,
-            content: ` ${ForBusiness && ForBusiness.map((ForBusiness, index) => <li>{ForBusiness}</li> )}`,
-        },
-          {
-            title: <h5>For Education</h5> ,
-            content: ` ${ForEducation && ForEducation.map((ForEducation, index) => <li>{ForEducation}</li> )}`,
-          },
-           {
-            title:  <h5>For Healthcare</h5> ,
-            content: ` ${ForHealthcare && ForHealthcare.map((ForHealthcare, index) => <li>{ForHealthcare}</li> )}`,
-          }, 
-          {
-            title: <h5>For Government</h5> ,
-            content: ` ${ForGovernment && ForGovernment.map((ForGovernment, index) => <li>{ForGovernment}</li> )}`,
-          }, 
-          {
-            title: <h5>Apple Values</h5> ,
-            content: ` ${AppleValues && AppleValues.map((AppleValues, index) => <li>{AppleValues}</li> )}}`,
-          }, 
-          {
-            title: <h5>About Apple</h5> ,
-            content: ` ${AboutApple && AboutApple.map((AboutApple, index) => <li>{AboutApple}</li> )}`,
-          },
-    ],
-  };
+
+  const [setActive, setActiveState] = useState("");
+  const [setHeight, setHeightState] = useState("0px");
+  const [setRotate, setRotateState] = useState("accordion_icon")
+ 
+  const content = useRef(null);
+
+  function toggleAccordion(){
+    setActiveState(setActive === "" ? "active" : "");
+    setHeightState(setActive === "active" ? "0px" : `${content.current.scrollHeight}px`);
+    setRotateState(setActive === "active" ? "accordion_icon" : "accordion_icon rotate");
+  }
   return (
     <Wrap>
       <p>
@@ -84,44 +52,141 @@ function Footer() {
 
 
       
-      {/* list */}
-      <LinkWrapper>
-        
+    <LinkWrapper>
+    <Accordion>
+      <div className="accordion_section">
+        <button className={`accordion_button ${setActive}`} onClick={toggleAccordion} >
+          <h5 >Shop and Learn</h5>
+          <h4 className={`${setRotate}`}>+</h4>
+        </button>
+        <div ref = {content} style={{maxHeight: `${setHeight}`}} className="accordion_text">
+        {ShopAndLearns && ShopAndLearns.map((ShopAndLearn, index1) => <li key={index1}>{ShopAndLearn}</li> )}
+        </div>
+      </div>
+      <div className="accordion_section">
+        <button className={`accordion_button ${setActive}`} onClick={toggleAccordion} >
+        <h5>Services</h5>
+        <h4 className={`${setRotate}`}>+</h4>
 
-            <Faq
-                data={data}
-            />
+        </button>
+        <div ref = {content} style={{maxHeight: `${setHeight}`}} className="accordion_text">
+        {Services && Services.map((Services, index2) => <li key={index2}>{Services}</li> )}
+        </div>
+      </div>
+      <div className="accordion_section">
+        <button className={`accordion_button ${setActive}`} onClick={toggleAccordion} >
+        <h5>Account</h5>
+        <h4 className={`${setRotate}`}>+</h4>
+
+        </button>
+        <div ref = {content} style={{maxHeight: `${setHeight}`}} className="accordion_text">
+        {Account && Account.map((Account, index3) => <li key={index3}>{Account}</li> )}
+        </div>
+      </div>
+      <div className="accordion_section">
+        <button className={`accordion_button ${setActive}`} onClick={toggleAccordion} >
+        <h5>Apple Store</h5>
+        <h4 className={`${setRotate}`}>+</h4>
+
+        </button>
+        <div ref = {content} style={{maxHeight: `${setHeight}`}} className="accordion_text">
+        {AppleStore && AppleStore.map((AppleStore, index4) => <li key={index4}>{AppleStore}</li> )}
+        </div>
+      </div>
+      <div className="accordion_section">
+        <button className={`accordion_button ${setActive}`} onClick={toggleAccordion} >
+        <h5>For Business</h5>
+        <h4 className={`${setRotate}`}>+</h4>
+
+        </button>
+        <div ref = {content} style={{maxHeight: `${setHeight}`}} className="accordion_text">
+        {ForBusiness && ForBusiness.map((ForBusiness, index5) => <li key={index5}>{ForBusiness}</li> )}
+        </div>
+      </div>
+      <div className="accordion_section">
+        <button className={`accordion_button ${setActive}`} onClick={toggleAccordion} >
+        <h5>For Education</h5>
+        <h4 className={`${setRotate}`}>+</h4>
+
+        </button>
+        <div ref = {content} style={{maxHeight: `${setHeight}`}} className="accordion_text">
+        {ForEducation && ForEducation.map((ForEducation, index6) => <li key={index6}>{ForEducation}</li> )}
+        </div>
+      </div>
+      <div className="accordion_section">
+        <button className={`accordion_button ${setActive}`} onClick={toggleAccordion} >
+        <h5>For Healthcare</h5>
+        <h4 className={`${setRotate}`}>+</h4>
+
+        </button>
+        <div ref = {content} style={{maxHeight: `${setHeight}`}} className="accordion_text">
+        {ForHealthcare && ForHealthcare.map((ForHealthcare, index7) => <li key={index7}>{ForHealthcare}</li> )}
+        </div>
+      </div>
+      <div className="accordion_section">
+        <button className={`accordion_button ${setActive}`} onClick={toggleAccordion} >
+        <h5>For Government</h5>
+        <h4 className={`${setRotate}`}>+</h4>
+
+        </button>
+        <div ref = {content} style={{maxHeight: `${setHeight}`}} className="accordion_text">
+        {ForGovernment && ForGovernment.map((ForGovernment, index8) => <li key={index8}>{ForGovernment}</li> )}
+        </div>
+      </div>
+      <div className="accordion_section">
+        <button className={`accordion_button ${setActive}`} onClick={toggleAccordion} >
+        <h5>Apple Values</h5>
+        <h4 className={`${setRotate}`}>+</h4>
+
+        </button>
+        <div ref = {content} style={{maxHeight: `${setHeight}`}} className="accordion_text">
+        {AppleValues && AppleValues.map((AppleValues, index9) => <li key={index9}>{AppleValues}</li> )}
+        </div>
+      </div>
+      <div className="accordion_section">
+        <button className={`accordion_button ${setActive}`} onClick={toggleAccordion} >
+        <h5>About Apple</h5>
+        <h4 className={`${setRotate}`}>+</h4>
+
+        </button>
+        <div ref = {content} style={{maxHeight: `${setHeight}`}} className="accordion_text">
+        {AboutApple && AboutApple.map((AboutApple, index10) => <li key={index10}>{AboutApple}</li> )}
+        </div>
+      </div>
+    </Accordion>
+      {/* list */}
+
         <LinkList>
           <ul>
             <h5>Shop and Learn</h5>
-            {ShopAndLearns && ShopAndLearns.map((ShopAndLearn, index) => <li>{ShopAndLearn}</li> )}
+            {ShopAndLearns && ShopAndLearns.map((ShopAndLearn, index1) => <li key={index1}>{ShopAndLearn}</li> )}
           </ul>
           <ul>
             <h5>Services</h5>
-            {Services && Services.map((Services, index) => <li>{Services}</li> )}
+            {Services && Services.map((Services, index2) => <li key={index2}>{Services}</li> )}
 
             <h5 style={{paddingTop:"0.8rem"}}>Account</h5>
-            {Account && Account.map((Account, index) => <li>{Account}</li> )}
+            {Account && Account.map((Account, index3) => <li key={index3}>{Account}</li> )}
           </ul>
           <ul>
             <h5>Apple Store</h5>
-            {AppleStore && AppleStore.map((AppleStore, index) => <li>{AppleStore}</li> )}
+            {AppleStore && AppleStore.map((AppleStore, index4) => <li key={index4}>{AppleStore}</li> )}
           </ul>
           <ul>
             <h5>For Business</h5>
-            {ForBusiness && ForBusiness.map((ForBusiness, index) => <li>{ForBusiness}</li> )}
+            {ForBusiness && ForBusiness.map((ForBusiness, index5) => <li key={index5}>{ForBusiness}</li> )}
             <h5 style={{paddingTop:"0.8rem"}}>For Education</h5>
-            {ForEducation && ForEducation.map((ForEducation, index) => <li>{ForEducation}</li> )}
+            {ForEducation && ForEducation.map((ForEducation, index6) => <li key={index6}>{ForEducation}</li> )}
             <h5 style={{paddingTop:"0.8rem"}}>For Healthcare</h5>
-            {ForHealthcare && ForHealthcare.map((ForHealthcare, index) => <li>{ForHealthcare}</li> )}
+            {ForHealthcare && ForHealthcare.map((ForHealthcare, index7) => <li key={index7}>{ForHealthcare}</li> )}
             <h5 style={{paddingTop:"0.8rem"}}>For Government</h5>
-            {ForGovernment && ForGovernment.map((ForGovernment, index) => <li>{ForGovernment}</li> )}
+            {ForGovernment && ForGovernment.map((ForGovernment, index8) => <li key={index8}>{ForGovernment}</li> )}
           </ul>
           <ul>
             <h5>Apple Values</h5>
-            {AppleValues && AppleValues.map((AppleValues, index) => <li>{AppleValues}</li> )}
+            {AppleValues && AppleValues.map((AppleValues, index9) => <li key={index9}>{AppleValues}</li> )}
             <h5 style={{paddingTop:"0.8rem"}}>About Apple</h5>
-            {AboutApple && AboutApple.map((AboutApple, index) => <li>{AboutApple}</li> )}
+            {AboutApple && AboutApple.map((AboutApple, index10) => <li key={index10}>{AboutApple}</li> )}
           </ul>
         </LinkList>
       </LinkWrapper>
@@ -162,7 +227,7 @@ const Wrap =styled.div`
     color:#808080;
     text-align:left;
     font-size:0.8rem;
-    border-bottom:0.11rem solid #d6d6d6
+    border-bottom:0.11rem solid #d6d6d6;
     ;
   }
   @media (max-width:967px){
@@ -170,7 +235,7 @@ const Wrap =styled.div`
   }
   
 `
-const FooterWrap =styled.div`
+const FooterWrap = styled.div`
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -239,3 +304,10 @@ padding-top:1rem;
   }
   
 `
+const Accordion = styled.div`
+@media (min-width:768px){
+  display:none;
+
+}
+`
+
