@@ -25,7 +25,7 @@ const initialState={
 }
 
 const itemSlice = createSlice({
-  name: ("shopAndLearn","service","account"),
+  name: ("shopAndLearn","service","account","appleStore","forBusiness","forEducation","forHealthcare","forGovernment","appleValues","aboutApple"),
   initialState,
   reducers:{}
 })

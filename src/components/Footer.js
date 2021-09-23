@@ -12,7 +12,9 @@ import { selectForHealthcare } from '../features/item/itemSlice';
 import { selectForGovernment } from '../features/item/itemSlice';
 import { selectAppleValues } from '../features/item/itemSlice';
 import { selectAboutApple } from '../features/item/itemSlice';
+
 import { useSelector } from 'react-redux';
+
 function Footer() {
 
   const ShopAndLearns = useSelector(selectShopAndLearns)
@@ -44,16 +46,16 @@ function Footer() {
       
     <LinkWrapper>
     <Accordion_content>
-      <Accordion title = "Shop and Learn" content = {ShopAndLearns && ShopAndLearns.map((ShopAndLearn, index1) => <li key={index1}>{JSON.stringify(ShopAndLearn)}</li> )}/>
-      <Accordion title = "Services" content= {Services && Services.map((Services, index2) => <li key={index2}>{Services}</li> )}/>
-      <Accordion title = " Account" content={Account && Account.map((Account, index3) => <li key={index3}>{Account}</li> )}/>
-      <Accordion title = " Apple Store" content= {AppleStore && AppleStore.map((AppleStore, index4) => <li key={index4}>{AppleStore}</li> )}/>
-      <Accordion title = "For Business" content= {ForBusiness && ForBusiness.map((ForBusiness, index5) => <li key={index5}>{ForBusiness}</li> )}/>
-      <Accordion title = "For Education" content={ForEducation && ForEducation.map((ForEducation, index6) => <li key={index6}>{ForEducation}</li> )}/>
-      <Accordion title = " For Healthcare" content={ForHealthcare && ForHealthcare.map((ForHealthcare, index7) => <li key={index7}>{ForHealthcare}</li> )}/>
-      <Accordion title = " For Government" content={ForGovernment && ForGovernment.map((ForGovernment, index8) => <li key={index8}>{ForGovernment}</li> )}/>
-      <Accordion title = "Apple Values" content= {AppleValues && AppleValues.map((AppleValues, index9) => <li key={index9}>{AppleValues}</li> )}/>
-      <Accordion title = "About Apple" content={AboutApple && AboutApple.map((AboutApple, index10) => <li key={index10}>{AboutApple}</li> )}/>
+      <Accordion title = "Shop and Learn" content = {ShopAndLearns}/>
+      <Accordion title = "Services" content= {Services}/>
+      <Accordion title = " Account" content={Account}/>
+      <Accordion title = " Apple Store" content= {AppleStore}/>
+      <Accordion title = "For Business" content= {ForBusiness}/>
+      <Accordion title = "For Education" content={ForEducation}/>
+      <Accordion title = " For Healthcare" content={ForHealthcare}/>
+      <Accordion title = " For Government" content={ForGovernment}/>
+      <Accordion title = "Apple Values" content= {AppleValues}/>
+      <Accordion title = "About Apple" content={AboutApple}/>
 
    
     </Accordion_content>
