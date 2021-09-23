@@ -12,6 +12,8 @@ function Tag() {
 export default Tag
 
 const Wrap = styled.div`
+margin-top:50px;
+
 color:#565656
 ;
 background:#f5f5f7;

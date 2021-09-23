@@ -1,7 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Apple } from '@material-ui/icons';
-import { SearchOutlined } from '@material-ui/icons';
-import { ShoppingBasketOutlined} from '@material-ui/icons';
+
 
 const initialState={
   shopAndLearns : [ "Mac","iPad","iPhone","Watch","TV","Music","AirPods","HomePod","iPod touch","AirTag","Accessories","Gift Cards" ] ,
@@ -21,41 +19,40 @@ const initialState={
 
   forGovernment:["Shop for Government","Shop for Veterans and Military"] ,
 
-  appleValues:["Accessibility","Education", "Environment", "Inclusion and Diversity","Privacy","Racial Equity and Justice","Supplier Responsibility"] ,
+  appleValues: ["Accessibility","Education", "Environment", "Inclusion and Diversity","Privacy","Racial Equity and Justice","Supplier Responsibility"] ,
 
-  aboutApple:["Newsroom","Apple Leadership","Career Opportunities","Investors", "Ethics & Compliance","Events","Contact Apple"],
+  aboutApple: ["Newsroom","Apple Leadership","Career Opportunities","Investors", "Ethics & Compliance","Events","Contact Apple"],
 
-  navItem:[<Apple/>,"Store","Mac","iPad","iPhone","Watch","TV","Music","Support",<SearchOutlined/>,<ShoppingBasketOutlined/>]
+ 
 }
 
 const itemSlice = createSlice({
-  name: ("shopAndLearn","service","account","appleStore","forBusiness","forEducation","forHealthcare","forGovernment","appleValues","aboutApple","navItem"),
+  name: ("shopAndLearn","service","account","appleStore","forBusiness","forEducation","forHealthcare","forGovernment","appleValues","aboutApple"),
   initialState,
   reducers:{}
 })
 
-export const selectShopAndLearns = state => state.shopAndLearn.shopAndLearns
+export const selectShopAndLearns = state => state.shopAndLearn.shopAndLearns;
 
-export const selectServices = state => state.service.services
+export const selectServices = state => state.service.services;
 
-export const selectAccount = state => state.account.account
+export const selectAccount = state => state.account.account;
 
-export const selectAppleStore = state => state.appleStore.appleStore
+export const selectAppleStore = state => state.appleStore.appleStore;
 
-export const selectForBusiness = state => state.forBusiness.forBusiness
+export const selectForBusiness = state => state.forBusiness.forBusiness;
 
-export const selectForEducation = state => state.forEducation.forEducation
+export const selectForEducation = state => state.forEducation.forEducation;
 
-export const selectForHealthcare = state => state.forHealthcare.forHealthcare
+export const selectForHealthcare = state => state.forHealthcare.forHealthcare;
 
-export const selectForGovernment = state => state.forGovernment.forGovernment
+export const selectForGovernment = state => state.forGovernment.forGovernment;
 
-export const selectAppleValues = state => state.appleValues.appleValues
+export const selectAppleValues = state => state.appleValues.appleValues;
 
-export const selectAboutApple = state => state.aboutApple.aboutApple
-
-export const selectNavItem = state => state.navItem.navItem
+export const selectAboutApple = state => state.aboutApple.aboutApple;
 
 
 
-export default itemSlice.reducer
+
+export default itemSlice.reducer;

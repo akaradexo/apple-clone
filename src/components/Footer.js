@@ -45,7 +45,7 @@ function Footer() {
 
       
     <LinkWrapper>
-    <Accordion_content>
+    <AccordionContent>
       <Accordion title = "Shop and Learn" content = {ShopAndLearns}/>
       <Accordion title = "Services" content= {Services}/>
       <Accordion title = " Account" content={Account}/>
@@ -58,7 +58,7 @@ function Footer() {
       <Accordion title = "About Apple" content={AboutApple}/>
 
    
-    </Accordion_content>
+    </AccordionContent>
       {/* list */}
 
         <LinkList>
@@ -126,7 +126,7 @@ const Wrap =styled.div`
   align-items:center;
   margin:0rem auto;
   width:100%;
-  padding:1rem 20%;
+  padding:1rem 18%;
   p{
     padding:1rem 0;
     color:#808080;
@@ -209,7 +209,7 @@ padding-top:1rem;
   }
   
 `
-const Accordion_content = styled.div`
+const AccordionContent = styled.div`
 @media (min-width:768px){
   display:none;
 
