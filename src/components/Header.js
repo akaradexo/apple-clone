@@ -39,6 +39,9 @@ right:1%;
 left:0;
 height:50px;
 padding:0 18%;
+@media (max-width:967px){
+  padding:0rem 1rem;
+}
 background:#0f0f0f;
 opacity:0.9!important;
 display:flex;
