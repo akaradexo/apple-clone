@@ -2,19 +2,14 @@ import React,{ useState , useRef } from 'react';
 
 import '../App.css';
 
-
-
-
 function Accordion(props) {
 
-  let info= props.content
+  let info= props.content;
 
   const [setActive, setActiveState] = useState("");
   const [setHeight, setHeightState] = useState("0px");
-  const [setRotate, setRotateState] = useState("accordion_icon")
+  const [setRotate, setRotateState] = useState("accordion_icon");
  
-  
-
   const content = useRef(null);
 
   function toggleAccordion(){
