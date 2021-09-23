@@ -32,6 +32,7 @@ color:#6b6b6b;
 }
 .active{
   color:#6b6b6b;
+  background-color: red;
 }
 .rotate{
   transform: rotate(45deg);
