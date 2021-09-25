@@ -4,7 +4,7 @@ import Section from './Section'
 import { Apple } from '@material-ui/icons'
 import { PlayCircleFilled } from '@material-ui/icons';
 import GridSection from './GridSection'
-import Header from './Header';
+import { Navbar } from './navbar';
 import Tag from './Tag'
 import Footer from './Footer';
 
@@ -12,7 +12,7 @@ function Home() {
   return (
     
     <Container>
-    <Header />
+    <Navbar />
     <Tag/>
       <Section 
         name="iPhone 13 Pro"
