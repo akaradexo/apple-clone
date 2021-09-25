@@ -28,6 +28,8 @@ const NavLinksContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content:center;
+  background-color: black;
+
 `;
 const LinksWrapper = styled.ul`
   display: flex;
@@ -52,12 +54,9 @@ const LinkItem = styled.li`
   width: 100%;
   padding-bottom:10px;
   border-bottom:1px solid #ebebec;
-  margin: 1rem ;
   color: #ebebec;
   font-weight: 500;
-  font-size: 16px;
   display: flex;
-  align-items: center;
-  justify-content:flex-start;
+  margin:0.8rem 0;
 
 `
