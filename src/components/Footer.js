@@ -156,8 +156,13 @@ const FooterWrap = styled.div`
       font-size:0.8rem;
       color:#6b6b6b;
       cursor:pointer;
+
       padding:0 0.6rem;
       white-space: no-wrap;
+      &:focus{
+        outline:none;
+        border:0;
+      }
       &:hover{
         text-decoration: underline;
       }
